@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CoreMVCBaseline.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CoreMVCBaseline
@@ -9,6 +10,8 @@ namespace CoreMVCBaseline
         {
             services.Configure<CustomAppSettings>(configuration.GetSection("CustomSettings"));
             services.AddTransient<ICustomService, CustomService>();
+            services.AddScoped<IProtectedCookies, ProtectedCookies>();
+
             return services;
         }
     }

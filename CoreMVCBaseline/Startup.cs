@@ -25,6 +25,7 @@ namespace CoreMVCBaseline
                 .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
 
+            services.AddHttpContextAccessor();
             services.AddCustomServices(Configuration);
         }
 
